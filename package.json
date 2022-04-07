@@ -2,7 +2,7 @@
   "name": "sanitize-basename",
   "repository": "github:fabiospampinato/sanitize-basename",
   "description": "Sanitize a file name for cross-platform validity.",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "main": "dist/index.js",
   "exports": "./dist/index.js",
