@@ -1,5 +1,9 @@
 
-/* CONSTS */
+/* IMPORT */
+
+import type {Replacement} from './types';
+
+/* MAIN */
 
 const FALLBACK_NAME = 'unnamed';
 
@@ -17,7 +21,7 @@ const REPLACEMENT_CHARACTERS = {
   '*': '⁎' // 0x204E - LOW ASTERISK
 };
 
-const REGEXES: [RegExp, any][] = [
+const REGEXES: [RegExp, Replacement][] = [
   /* CONTROL CHARACTERS */
   [/[\u0000-\u001F\u0080-\u009F]/g, ''],
   /* RELATIVE PATHS */
@@ -25,7 +29,7 @@ const REGEXES: [RegExp, any][] = [
   /* WINDOWS SPECIAL NAMES */
   [/^(con|prn|aux|nul|com[0-9]|lpt[0-9])$/i, ''],
   /* FORBIDDEN CHARACTERS */
-  [/[<>:"/\\|?*]/g, x => REPLACEMENT_CHARACTERS[x]]
+  [/[<>:"/\\|?*]/g, char => REPLACEMENT_CHARACTERS[char] || '']
 ];
 
 /* EXPORT */

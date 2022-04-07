@@ -1,7 +1,7 @@
 
-/* TESTS */
+/* MAIN */
 
-const Tests = [
+const TESTS = [
   /* CONTROL CHARACTERS */
   ['foo\u0000bar', 'foobar'],
   ['foo\u0080bar', 'foobar'],
@@ -33,4 +33,4 @@ const Tests = [
 
 /* EXPORT */
 
-module.exports = Tests;
+export {TESTS};

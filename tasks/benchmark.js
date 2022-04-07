@@ -1,11 +1,11 @@
 
 /* IMPORT */
 
-const benchmark = require ( 'benchloop' ),
-      {default: sanitize} = require ( '../dist' ),
-      Tests = require ( '../test/tests' );
+import benchmark from 'benchloop';
+import sanitize from '../dist/index.js';
+import {TESTS} from '../test/fixtures.js';
 
-/* BENCHMARK */
+/* MAIN */
 
 benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
   iterations: 10000,
@@ -15,7 +15,7 @@ benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
 benchmark ({
   name: 'sanitize',
   fn: () => {
-    Tests.forEach ( ([ name ]) => {
+    TESTS.forEach ( ([ name ]) => {
       sanitize ( name );
     });
   }

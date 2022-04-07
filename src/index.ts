@@ -1,12 +1,12 @@
 
 /* IMPORT */
 
-import {Options} from './types';
-import {FALLBACK_NAME, MAX_LENGTH, REGEXES} from './consts';
+import {FALLBACK_NAME, MAX_LENGTH, REGEXES} from './constants';
+import type {Options} from './types';
 
-/* SANITIZE BASENAME */
+/* MAIN */
 
-function sanitize ( name: string, options?: Partial<Options> ): string {
+const sanitize = ( name: string, options?: Partial<Options> ): string => {
 
   /* REGEXES */
 
@@ -14,7 +14,7 @@ function sanitize ( name: string, options?: Partial<Options> ): string {
 
     const [re, replacement] = REGEXES[i];
 
-    name = name.replace ( re, replacement );
+    name = name.replace ( re, replacement as any ); //TSC: No idea why TS is complaining
 
     if ( !name.length ) return FALLBACK_NAME;
 
@@ -28,8 +28,8 @@ function sanitize ( name: string, options?: Partial<Options> ): string {
 
   /* MAX LENGTH */
 
-  const maxLength = options?.maxLength ?? MAX_LENGTH,
-        extraLength = name.length - maxLength;
+  const maxLength = options?.maxLength ?? MAX_LENGTH;
+  const extraLength = name.length - maxLength;
 
   if ( extraLength > 0 ) {
 
@@ -50,7 +50,7 @@ function sanitize ( name: string, options?: Partial<Options> ): string {
 
   return name;
 
-}
+};
 
 /* EXPORT */
 

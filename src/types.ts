@@ -1,10 +1,12 @@
 
-/* TYPES */
+/* MAIN */
 
 type Options = {
   maxLength?: number
 };
 
+type Replacement = string | (( match: string ) => string);
+
 /* EXPORT */
 
-export {Options};
+export type {Options, Replacement};

@@ -1,17 +1,17 @@
 
 /* IMPORT */
 
-import {describe} from 'ava-spec';
-import {default as sanitize} from '../dist';
-import Tests from './tests';
+import {describe} from 'fava';
+import sanitize from '../dist/index.js';
+import {TESTS} from './fixtures.js';
 
-/* SANITIZE FILE NAME */
+/* MAIN */
 
 describe ( 'sanitize', it => {
 
   it ( 'passes the tests', t => {
 
-    Tests.forEach ( ([ name, result ]) => {
+    TESTS.forEach ( ([ name, result ]) => {
 
       t.is ( sanitize ( name ), result );
 
