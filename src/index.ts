@@ -14,7 +14,7 @@ const sanitize = ( name: string, options?: Partial<Options> ): string => {
 
     const [re, replacement] = REGEXES[i];
 
-    name = name.replace ( re, replacement as any ); //TSC: No idea why TS is complaining
+    name = name.replace ( re, replacement );
 
     if ( !name.length ) return FALLBACK_NAME;
 

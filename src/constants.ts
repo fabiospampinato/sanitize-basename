@@ -23,11 +23,11 @@ const REPLACEMENT_CHARACTERS = {
 
 const REGEXES: [RegExp, Replacement][] = [
   /* CONTROL CHARACTERS */
-  [/[\u0000-\u001F\u0080-\u009F]/g, ''],
+  [/[\u0000-\u001F\u0080-\u009F]/g, () => ''],
   /* RELATIVE PATHS */
-  [/^(\.+[\/\\]+)+|^\.+$/g, ''],
+  [/^(\.+[\/\\]+)+|^\.+$/g, () => ''],
   /* WINDOWS SPECIAL NAMES */
-  [/^(con|prn|aux|nul|com[0-9]|lpt[0-9])$/i, ''],
+  [/^(con|prn|aux|nul|com[0-9]|lpt[0-9])$/i, () => ''],
   /* FORBIDDEN CHARACTERS */
   [/[<>:"/\\|?*]/g, char => REPLACEMENT_CHARACTERS[char] || '']
 ];

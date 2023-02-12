@@ -5,7 +5,7 @@ type Options = {
   maxLength?: number
 };
 
-type Replacement = string | (( match: string ) => string);
+type Replacement = ( match: string ) => string;
 
 /* EXPORT */
 
