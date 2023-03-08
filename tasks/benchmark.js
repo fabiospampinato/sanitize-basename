@@ -7,7 +7,7 @@ import {TESTS} from '../test/fixtures.js';
 
 /* MAIN */
 
-benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
+benchmark.config ({
   iterations: 10_000
 });
 
