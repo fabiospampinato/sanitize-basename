@@ -55,3 +55,4 @@ const sanitize = ( name: string, options?: Partial<Options> ): string => {
 /* EXPORT */
 
 export default sanitize;
+export type {Options};
