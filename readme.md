@@ -7,13 +7,15 @@ Instead of stripping out forbidden characters, like other libraries do, this lib
 ## Install
 
 ```sh
-npm install --save sanitize-basename
+npm install sanitize-basename
 ```
 
 ## Usage
 
 ```ts
 import sanitize from 'sanitize-basename';
+
+// Let's sanitize some file names
 
 sanitize ( '../foo' ); // => 'foo'
 sanitize ( '<>:"/\\|?*.txt' ); // => '‹›꞉ˮ⁄∖ǀʔ⁎.txt'
@@ -22,7 +24,7 @@ sanitize ( 'aaaaaaaaaaaaaaaaa.txt', { maxLength: 10 } ); // => aaaaaa.txt
 
 ## Related
 
-- [unsanitize-basename](https://github.com/fabiospampinato/unsanitize-basename): Unsanitize a file name, the inverse of this library.
+- [`unsanitize-basename`](https://github.com/fabiospampinato/unsanitize-basename): Unsanitize a file name, the inverse of this library.
 
 ## License
 
